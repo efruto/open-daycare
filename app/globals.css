@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-fondo: #F6ECDF;
+  --color-tarjeta: #FFFDF9;
+  --color-borde: #ECE0D0;
+  --color-borde-suave: #F0E6D8;
+  --color-linea: #E7DAC8;
+  --color-texto: #3F362E;
+  --color-texto-cuerpo: #4A4038;
+  --color-texto-inactivo: #6E6359;
+  --color-texto-etiqueta: #8A7C6D;
+  --color-texto-secundario: #94887B;
+  --color-texto-nota: #A89A8B;
+  --color-coral: #E0654A;
+  --color-coral-fuerte: #D9583C;
+  --color-coral-oscuro: #C5503A;
+  --color-coral-claro: #FBE3D8;
+  --color-coral-avatar: #F2937A;
+  --color-coral-rosado: #F8C3A8;
+  --color-coral-degradado-inicio: #F4977E;
+  --color-coral-degradado-fin: #EE8164;
+  --color-chip-logro: #CFEBD8;
+  --color-chip-logro-texto: #3E9B6C;
+  --color-chip-actividad: #C7E7F1;
+  --color-chip-actividad-texto: #2E89A6;
+  --color-chip-anuncio: #CCD8F4;
+  --color-chip-anuncio-texto: #4E72C8;
+  --color-avatar-celeste: #A9D9E8;
+  --color-avatar-celeste-texto: #1F7A93;
+  --color-foto-marco: #DBCDBA;
+  --color-foto-fondo: #F4ECE1;
+  --color-foto-icono: #B0A290;
+  --shadow-tarjeta: 0 4px 16px -12px rgba(120, 90, 60, 0.5);
+  --shadow-trigger: 0 4px 14px -10px rgba(120, 90, 60, 0.4);
+  --shadow-boton-coral: 0 8px 18px -8px rgba(238, 129, 100, 0.75);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-fredoka);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E4D6C4;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: content-box;
 }

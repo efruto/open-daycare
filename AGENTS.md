@@ -11,3 +11,32 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## MCPs
 
 - Playwright Screenshots y cualquier cosa relacionada a Playwright tienen que estar en la carpeta .playwright-mcp.
+- Context7 Usaremos este MCP para traer la documentación actualizda del framework.
+
+## Spec Driven Development - Skills
+
+- /spec Usaremos esta skill para crear las especificaciones.
+- /spec Usaremos esta skill para crear las implementaciones.
+
+## Comandos
+
+- `npm run dev` — servidor de desarrollo (Turbopack).
+- `npm run lint` — ESLint flat config. En Next 16 `next lint` ya no existe; no intentar usarlo.
+- `npm run build` — build de producción; también ejecuta el typecheck.
+- No hay framework de tests ni script `typecheck`; para typecheck manual usar `npx tsc --noEmit`.
+
+## Arquitectura
+
+- App Next.js 16 (App Router) recién scaffoldeada: todo el código vive en `app/` (por ahora solo `layout.tsx`, `page.tsx`, `globals.css`).
+- `references/pantallas/*.dc.html` son mockups HTML (en español) de todas las pantallas previstas: login, feed, niños, perfil-niño, resumen-día, avisos, publicaciones, cuenta familiar, vincular-padre, activar-cuenta, etc. `references/screenshots/*.png` son capturas de referencia. Son la fuente de verdad de diseño y alcance: consultarlas antes de construir UI.
+- Estilo de diseño definido en los mockups: tipografías Fredoka + Nunito, fondo crema (#f6ecdf), tarjetas #fffdf9. La UI de la app es en español.
+
+## Quirks de Next/Tailwind
+
+- `next.config.ts` activa `cacheComponents`, `partialPrefetching` y `experimental.agentFeedback`: la semántica de caché y fetch de datos difiere de versiones previas de Next. Ver los docs incluidos en `node_modules/next/dist/docs/` antes de asumir APIs.
+- Tailwind v4 corre por loader de Turbopack (`@tailwindcss/turbopack` en `next.config.ts`); no hay `tailwind.config.*` — la configuración es CSS-first en `app/globals.css`.
+- Los layouts reciben props tipados autogenerados (p. ej. `LayoutProps<"/">` en `app/layout.tsx`); seguir esa convención.
+
+## Workflow
+
+- Para features grandes usar las skills instaladas: `spec` (diseñar spec) y `spec-impl` (implementar spec aprobada).
