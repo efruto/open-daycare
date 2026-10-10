@@ -1,6 +1,6 @@
 # SPEC 01 — Home Feed estático (réplica del mockup)
 
-> **Estado:** Aprobado
+> **Estado:** Implemantado
 > **Depende de:** ninguna
 > **Fecha:** 2026-10-09
 > **Objetivo:** Implementar la pantalla Feed del mockup como home `/` con datos mock y fidelidad visual exacta en desktop, más una adaptación mobile con drawer hamburguesa y FAB.
