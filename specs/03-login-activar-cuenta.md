@@ -1,6 +1,6 @@
 # SPEC 03 — Login y Activar Cuenta
 
-> **Estado:** Aprobado
+> **Estado:** Verificado
 > **Depende de:** ninguna
 > **Fecha:** 2026-10-12
 > **Objetivo:** Implementar las pantallas visuales de login y activación de cuenta basadas en los mockups, con rutas `/login` y `/activar-cuenta`, omitiendo el selector de rol en login.
@@ -68,20 +68,20 @@ const colorAvatar = "#A9D9E8";
 
 ## Acceptance Criteria
 
-- [ ] La ruta `/login` muestra el formulario sin selector de rol (solo labels "INGRESO COMO")
-- [ ] El panel izquierdo con branding es visible en viewport ≥1024px
-- [ ] El panel izquierdo se oculta en viewport <1024px
-- [ ] El link "Activá tu cuenta" navega a `/activar-cuenta`
-- [ ] La ruta `/activar-cuenta` muestra datos hardcodeados: código "7K4P9", email "lucia.fernandez@gmail.com", niño "Mateo · Sala Soles"
-- [ ] El checkbox de autorización cambia de estado (checked/unchecked) al hacer clic
-- [ ] El link "Iniciar sesión" en activar-cuenta navega a `/login`
-- [ ] Los botones "Iniciar sesión" y "Activar mi cuenta" no ejecutan ninguna acción (solo visuales)
-- [ ] El link "¿Olvidaste tu contraseña?" no ejecuta ninguna acción
-- [ ] Las tipografías Fredoka (títulos) y Nunito (texto) se renderizan correctamente
-- [ ] La paleta de colores coincide con los mockups (fondo #FBF4EC, inputs #fff, bordes #EADFD0)
-- [ ] `npm run lint` pasa sin errores
-- [ ] `npm run build` pasa sin errores
-- [ ] TypeScript no reporta errores con `npx tsc --noEmit`
+- [x] La ruta `/login` muestra el formulario sin selector de rol (solo labels "INGRESO COMO")
+- [x] El panel izquierdo con branding es visible en viewport ≥1024px
+- [x] El panel izquierdo se oculta en viewport <1024px
+- [x] El link "Activá tu cuenta" navega a `/activar-cuenta`
+- [x] La ruta `/activar-cuenta` muestra datos hardcodeados: código "7K4P9", email "lucia.fernandez@gmail.com", niño "Mateo · Sala Soles"
+- [x] El checkbox de autorización cambia de estado (checked/unchecked) al hacer clic
+- [x] El link "Iniciar sesión" en activar-cuenta navega a `/login`
+- [x] Los botones "Iniciar sesión" y "Activar mi cuenta" no ejecutan ninguna acción (solo visuales)
+- [x] El link "¿Olvidaste tu contraseña?" no ejecuta ninguna acción
+- [x] Las tipografías Fredoka (títulos) y Nunito (texto) se renderizan correctamente
+- [x] La paleta de colores coincide con los mockups (fondo #FBF4EC, inputs #fff, bordes #EADFD0)
+- [x] `npm run lint` pasa sin errores
+- [x] `npm run build` pasa sin errores
+- [x] TypeScript no reporta errores con `npx tsc --noEmit`
 
 ---
 
@@ -120,3 +120,25 @@ const colorAvatar = "#A9D9E8";
 - Redirección post-login/activación a otras rutas
 - Selector de rol en login
 - Responsive mobile específico (solo ocultar panel izquierdo)
+
+---
+
+## Resultados de Verificación
+
+**Fecha:** 2026-10-12  
+**Estado:** Todos los criterios pasaron ✓
+
+**Verificación de código:**
+- Estructura de archivos correcta (route groups `(auth)` y `(dashboard)`)
+- Panel izquierdo usa `hidden lg:flex` (visible solo en desktop)
+- Links usan `next/link` con rutas correctas (`/login`, `/activar-cuenta`)
+- Checkbox implementado con `useState` para estado interactivo
+- Botones usan `type="button"` sin handlers `onClick`
+- Tipografías aplicadas: `font-display` (Fredoka) para títulos, default (Nunito) para texto
+- Colores inline específicos: `#FBF4EC` (fondo), `#EADFD0` (bordes), `#FBF1D6` (aviso checkbox)
+
+**Verificación de build:**
+- ESLint: 0 errores
+- Next.js build: Compiled successfully
+- TypeScript: 0 errores con `npx tsc --noEmit`
+- Rutas generadas: `/login` y `/activar-cuenta` ambas como páginas estáticas
