@@ -1,6 +1,6 @@
 # SPEC 03 — Login y Activar Cuenta
 
-> **Estado:** Verificado
+> **Estado:** Implementado
 > **Depende de:** ninguna
 > **Fecha:** 2026-10-12
 > **Objetivo:** Implementar las pantallas visuales de login y activación de cuenta basadas en los mockups, con rutas `/login` y `/activar-cuenta`, omitiendo el selector de rol en login.
