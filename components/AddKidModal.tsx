@@ -11,6 +11,17 @@ type AddKidModalProps = {
 
 const AVATAR_COLORS = ["#A9D9E8", "#F4B8CC", "#B9DEC4", "#C9B6E8", "#F4DC8E"];
 
+function formatearFecha(value: string): string {
+  // Remover todo excepto dígitos
+  const numeros = value.replace(/\D/g, "");
+  // Limitar a 8 dígitos (ddmmaaaa)
+  const limited = numeros.slice(0, 8);
+  // Agregar barras automáticamente
+  if (limited.length <= 2) return limited;
+  if (limited.length <= 4) return `${limited.slice(0, 2)}/${limited.slice(2)}`;
+  return `${limited.slice(0, 2)}/${limited.slice(2, 4)}/${limited.slice(4)}`;
+}
+
 export default function AddKidModal({ open, onClose, onSave }: AddKidModalProps) {
   const [nombre, setNombre] = useState("");
   const [fechaNacimiento, setFechaNacimiento] = useState("");
@@ -171,7 +182,7 @@ export default function AddKidModal({ open, onClose, onSave }: AddKidModalProps)
               <input
                 placeholder="dd/mm/aaaa"
                 value={fechaNacimiento}
-                onChange={(e) => setFechaNacimiento(e.target.value)}
+                onChange={(e) => setFechaNacimiento(formatearFecha(e.target.value))}
                 className="w-full px-4 py-[13px] rounded-[14px] text-[15px]"
                 style={{
                   border: formSubmitted && errores.fecha ? "1.5px solid #D9583C" : "1.5px solid #EADFD0",
