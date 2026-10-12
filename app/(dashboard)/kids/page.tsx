@@ -1,8 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import SearchBar from "@/components/SearchBar";
 import KidCard from "@/components/KidCard";
-import { mockKids } from "@/lib/mocks";
+import AddKidModal from "@/components/AddKidModal";
+import { mockKids, type Kid } from "@/lib/mocks";
 
 export default function KidsPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [kids, setKids] = useState<Kid[]>(mockKids);
+
+  function handleAddKid(newKid: Kid) {
+    setKids((prev) => [...prev, newKid]);
+  }
+
   return (
     <div className="mx-auto w-full max-w-[880px] px-5 pb-20 pt-6 lg:px-10 lg:pt-[34px]">
       <div className="flex items-end justify-between gap-4 mb-[22px]">
@@ -14,9 +25,10 @@ export default function KidsPage() {
             Niños
           </h1>
         </div>
-        <a
-          href="#"
-          className="flex items-center gap-2 px-[18px] py-3 rounded-[14px] bg-gradient-to-b from-coral-degradado-inicio to-coral-degradado-fin text-white font-extrabold text-[14.5px] shadow-boton-coral"
+        <button
+          type="button"
+          onClick={() => setModalOpen(true)}
+          className="flex items-center gap-2 px-[18px] py-3 rounded-[14px] bg-gradient-to-b from-coral-degradado-inicio to-coral-degradado-fin text-white font-extrabold text-[14.5px] shadow-boton-coral cursor-pointer"
         >
           <svg
             width="17"
@@ -31,7 +43,7 @@ export default function KidsPage() {
             <path d="M12 5v14M5 12h14" />
           </svg>
           Agregar niño
-        </a>
+        </button>
       </div>
 
       <SearchBar />
@@ -41,16 +53,22 @@ export default function KidsPage() {
           SALA SOLES
         </span>
         <span className="text-[13px] text-texto-nota">
-          {mockKids.length} niños
+          {kids.length} niños
         </span>
         <span className="flex-1 h-px bg-linea" />
       </div>
 
       <div className="grid grid-cols-2 gap-[14px]">
-        {mockKids.map((kid) => (
+        {kids.map((kid) => (
           <KidCard key={kid.id} kid={kid} />
         ))}
       </div>
+
+      <AddKidModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        onSave={handleAddKid}
+      />
     </div>
   );
 }
