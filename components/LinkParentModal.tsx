@@ -87,10 +87,11 @@ export default function LinkParentModal({ open, kidName, onClose, onLink }: Link
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center p-10 bg-black/40">
+    <div className="fixed inset-0 z-50 flex items-start justify-center p-10 bg-black/40" onClick={handleClose}>
       <div
         className="w-full max-w-[480px] rounded-[24px] overflow-hidden shadow-2xl"
         style={{ background: "#FBF4EC", border: "1px solid #ECE0D0" }}
+        onClick={(e) => e.stopPropagation()}
       >
         <div
           className="flex items-center justify-between px-[26px] py-5"
