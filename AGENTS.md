@@ -15,8 +15,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Spec Driven Development - Skills
 
-- /spec Usaremos esta skill para crear las especificaciones.
-- /spec Usaremos esta skill para crear las implementaciones.
+- `/spec` — Diseñar y desarrollar especificaciones.
+- `/spec-impl` — Implementar specs aprobadas (crea rama, implementa paso a paso).
+- `/spec-verifier` — Verificar criterios de aceptación en specs implementadas. Actualiza el estado de la spec a "Verificado" si todo pasa.
 
 ## Comandos
 
@@ -24,6 +25,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - `npm run lint` — ESLint flat config. En Next 16 `next lint` ya no existe; no intentar usarlo.
 - `npm run build` — build de producción; también ejecuta el typecheck.
 - No hay framework de tests ni script `typecheck`; para typecheck manual usar `npx tsc --noEmit`.
+
+## Workflow
+
+- Para features grandes usar las skills instaladas: `spec` (diseñar spec), `spec-impl` (implementar spec aprobada) y `spec-verifier` (verificar criterios de aceptación).
+- Para verificar una spec implementada: `/spec-verifier <NN-spec-name>`. El agente lee la spec, verifica cada criterio contra el código, ejecuta lint/build si aplica, y actualiza el archivo con el estado "Verificado" si todo pasa.
 
 ## Arquitectura
 
@@ -36,7 +42,3 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - `next.config.ts` activa `cacheComponents`, `partialPrefetching` y `experimental.agentFeedback`: la semántica de caché y fetch de datos difiere de versiones previas de Next. Ver los docs incluidos en `node_modules/next/dist/docs/` antes de asumir APIs.
 - Tailwind v4 corre por loader de Turbopack (`@tailwindcss/turbopack` en `next.config.ts`); no hay `tailwind.config.*` — la configuración es CSS-first en `app/globals.css`.
 - Los layouts reciben props tipados autogenerados (p. ej. `LayoutProps<"/">` en `app/layout.tsx`); seguir esa convención.
-
-## Workflow
-
-- Para features grandes usar las skills instaladas: `spec` (diseñar spec) y `spec-impl` (implementar spec aprobada).

@@ -1,8 +1,8 @@
 ---
 name: spec-verifier
 description: Verifies acceptance criteria in spec files by checking implementation against requirements using Context7 for Next.js validation and Playwright for visual comparison with vision model. Works in current branch, only verifies (no code modifications), and automatically updates the spec file with verification results.
-mode: all
-model: opencode-go/qwen3.7-plus
+mode: subagent
+model: qwen/qwen2.5-vl-72b-instruct
 permission:
   read: allow
   edit: allow

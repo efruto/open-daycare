@@ -1,6 +1,6 @@
 # SPEC 01 — Home Feed estático (réplica del mockup)
 
-> **Estado:** Implemantado
+> **Estado:** Implementado
 > **Depende de:** ninguna
 > **Fecha:** 2026-10-09
 > **Objetivo:** Implementar la pantalla Feed del mockup como home `/` con datos mock y fidelidad visual exacta en desktop, más una adaptación mobile con drawer hamburguesa y FAB.
@@ -74,13 +74,13 @@ Esta spec no introduce persistencia de ningún tipo.
 
 ## Criterios de aceptación
 
-- [ ] Con viewport ≥1024px la home se ve idéntica al mockup: mismos colores, tipografías, tamaños, sombras, chips y textos de los 3 posts.
-- [ ] Con viewport <1024px no se muestra el sidebar; hay header con hamburguesa que abre un drawer con la misma navegación, y un FAB "Nueva publicación".
-- [ ] El drawer abre y cierra (botón hamburguesa y overlay/cerrar) sin errores en consola.
-- [ ] Ítems de navegación, "Editar", corazones y comentarios no navegan ni cambian estado.
-- [ ] El recuadro de foto es un placeholder punteado con ícono de cámara y etiqueta "Foto · pintando con témperas".
-- [ ] `npm run lint` y `npm run build` pasan sin errores.
-- [ ] `<html lang="es">` y título de pestaña "OpenDayCare".
+- [x] Con viewport ≥1024px la home se ve idéntica al mockup: mismos colores, tipografías, tamaños, sombras, chips y textos de los 3 posts.
+- [x] Con viewport <1024px no se muestra el sidebar; hay header con hamburguesa que abre un drawer con la misma navegación, y un FAB "Nueva publicación".
+- [x] El drawer abre y cierra (botón hamburguesa y overlay/cerrar) sin errores en consola.
+- [x] Ítems de navegación, "Editar", corazones y comentarios no navegan ni cambian estado.
+- [x] El recuadro de foto es un placeholder punteado con ícono de cámara y etiqueta "Foto · pintando con témperas".
+- [x] `npm run lint` y `npm run build` pasan sin errores.
+- [x] `<html lang="es">` y título de pestaña "OpenDayCare".
 
 ## Decisiones
 
