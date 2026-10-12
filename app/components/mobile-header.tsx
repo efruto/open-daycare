@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { SidebarContent } from "@/app/components/sidebar";
-import { usuarioActual } from "@/app/lib/mock-feed";
+import { SidebarContent } from "@/components/Sidebar";
 
 export default function MobileHeader() {
   const [menuAbierto, setMenuAbierto] = useState(false);
@@ -32,7 +31,7 @@ export default function MobileHeader() {
                 OpenDayCare
               </div>
               <div className="mt-[2px] text-[11.5px] text-texto-nota">
-                Sala {usuarioActual.sala}
+                Sala Soles
               </div>
             </div>
           </div>

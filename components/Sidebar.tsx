@@ -3,16 +3,23 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Sidebar() {
+const usuarioActual = {
+  nombre: "Caro Giménez",
+  iniciales: "C",
+  rol: "Maestra",
+  sala: "Soles",
+};
+
+export function SidebarContent() {
   const pathname = usePathname();
 
-  const isFeedActive = pathname === "/feed";
+  const isHomeActive = pathname === "/";
   const isKidsActive = pathname === "/kids" || pathname.startsWith("/kids/");
-  const isAvisosActive = false;
-  const isMiCuentaActive = false;
+  const isAvisosActive = pathname === "/avisos";
+  const isMiCuentaActive = pathname === "/mi-cuenta";
 
   return (
-    <aside className="w-[248px] flex-none bg-tarjeta border-r border-borde flex flex-col p-6 px-4 sticky top-0 h-screen">
+    <>
       <Link href="/" className="flex items-center gap-[11px] px-2 pb-[22px]">
         <div className="w-[38px] h-[38px] rounded-xl bg-gradient-to-br from-coral-rosado to-coral-avatar flex items-center justify-center flex-none">
           <svg
@@ -34,7 +41,7 @@ export default function Sidebar() {
             OpenDayCare
           </div>
           <div className="text-[11.5px] text-texto-nota mt-[2px]">
-            Sala Soles
+            Sala {usuarioActual.sala}
           </div>
         </div>
       </Link>
@@ -60,9 +67,9 @@ export default function Sidebar() {
 
       <nav className="flex flex-col gap-1 flex-1">
         <Link
-          href="/feed"
+          href="/"
           className={`flex items-center gap-3 px-3 py-[11px] rounded-xl text-[14.5px] ${
-            isFeedActive
+            isHomeActive
               ? "bg-coral-claro text-coral-fuerte font-extrabold"
               : "bg-transparent text-texto-inactivo font-semibold"
           }`}
@@ -155,13 +162,15 @@ export default function Sidebar() {
       <div className="border-t border-borde pt-[14px] mt-[10px]">
         <div className="flex items-center gap-[11px] px-2 py-[6px]">
           <div className="w-[38px] h-[38px] rounded-full bg-coral-avatar text-white font-display font-semibold text-[16px] flex items-center justify-center flex-none">
-            C
+            {usuarioActual.iniciales}
           </div>
           <div className="flex-1 min-w-0">
             <div className="font-extrabold text-[14px] text-texto">
-              Caro Giménez
+              {usuarioActual.nombre}
             </div>
-            <div className="text-[12px] text-texto-nota">Maestra · Soles</div>
+            <div className="text-[12px] text-texto-nota">
+              {usuarioActual.rol} · {usuarioActual.sala}
+            </div>
           </div>
           <Link
             href="#"
@@ -183,6 +192,14 @@ export default function Sidebar() {
           </Link>
         </div>
       </div>
+    </>
+  );
+}
+
+export default function Sidebar() {
+  return (
+    <aside className="hidden w-[248px] flex-none bg-tarjeta border-r border-borde flex-col p-6 px-4 sticky top-0 h-screen lg:flex">
+      <SidebarContent />
     </aside>
   );
 }
