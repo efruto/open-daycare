@@ -1,6 +1,6 @@
 # SPEC 05 — Vincular Padre (Modal)
 
-> **Estado:** Aprobado
+> **Estado:** Implementado
 > **Depende de:** SPEC 02, SPEC 04
 > **Fecha:** 2026-10-12
 > **Objetivo:** Implementar un modal para vincular un nuevo padre/madre al perfil de un niño, basado en el mockup `references/pantallas/vincular-padre.dc.html`, con generación de código de invitación y validación de campos.
