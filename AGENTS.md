@@ -18,7 +18,6 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - `/spec` — Diseñar y desarrollar especificaciones.
 - `/spec-impl` — Implementar specs aprobadas (crea rama, implementa paso a paso).
 - `/spec-verifier` — Verificar criterios de aceptación en specs implementadas. Actualiza el estado de la spec a "Verificado" si todo pasa.
-- Los planes (spec) se guardan en la carpeta /specs
 
 ## Comandos
 
