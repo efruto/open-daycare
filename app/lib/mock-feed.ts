@@ -1,4 +1,14 @@
-export type TipoPost = "logro" | "actividad" | "anuncio";
+export type TipoPost = "comida" | "siesta" | "actividad" | "logro" | "animo" | "foto" | "anuncio";
+
+export interface Comentario {
+  id: string;
+  autor: string;
+  rol: string;
+  avatarColor: string;
+  avatarLetter: string;
+  hora: string;
+  texto: string;
+}
 
 export interface PostMock {
   id: string;
@@ -9,8 +19,8 @@ export interface PostMock {
   destinatarios: string;
   texto: string;
   foto?: { etiqueta: string };
-  corazones: number;
-  comentarios: number;
+  meEncanta: number;
+  comentarios: Comentario[];
 }
 
 export const usuarioActual = {
@@ -18,6 +28,13 @@ export const usuarioActual = {
   rol: "Maestra",
   sala: "Soles",
   iniciales: "C",
+};
+
+export const usuarioFamilia = {
+  nombre: "Lucía Fernández",
+  rol: "mamá",
+  avatarColor: "#C9B6E8",
+  avatarLetter: "L",
 };
 
 export const feedPosts: PostMock[] = [
@@ -29,8 +46,8 @@ export const feedPosts: PostMock[] = [
     hora: "14:20",
     destinatarios: "familia de Mateo",
     texto: "¡Usó el orinal solito por primera vez! Estaba feliz de contárselo a todos. Un gran paso.",
-    corazones: 3,
-    comentarios: 1,
+    meEncanta: 3,
+    comentarios: [],
   },
   {
     id: "actividad-temperas",
@@ -41,8 +58,27 @@ export const feedPosts: PostMock[] = [
     destinatarios: "familia de Mateo",
     texto: "Pintamos con témperas esta mañana. Mateo eligió el azul para todo y se concentró un montón mezclando colores.",
     foto: { etiqueta: "Foto · pintando con témperas" },
-    corazones: 5,
-    comentarios: 2,
+    meEncanta: 5,
+    comentarios: [
+      {
+        id: "c1",
+        autor: "Lucía Fernández",
+        rol: "mamá",
+        avatarColor: "#C9B6E8",
+        avatarLetter: "L",
+        hora: "10:02",
+        texto: "¡Qué hermoso! En casa también le encanta el azul.",
+      },
+      {
+        id: "c2",
+        autor: "Maestra Caro",
+        rol: "maestra",
+        avatarColor: "#F2937A",
+        avatarLetter: "C",
+        hora: "10:15",
+        texto: "¡Se nota mucho! Le guardamos la obra 🎨",
+      },
+    ],
   },
   {
     id: "anuncio-parque",
@@ -51,7 +87,7 @@ export const feedPosts: PostMock[] = [
     hora: "07:50",
     destinatarios: "toda la sala",
     texto: "El viernes salimos al parque por la mañana. Recuerden mandar gorra y una botellita de agua.",
-    corazones: 8,
-    comentarios: 0,
+    meEncanta: 8,
+    comentarios: [],
   },
 ];

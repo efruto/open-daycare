@@ -1,7 +1,12 @@
+"use client";
+
 import PostCard from "@/app/components/post-card";
-import { feedPosts, usuarioActual } from "@/app/lib/mock-feed";
+import { usuarioActual } from "@/app/lib/mock-feed";
+import { usePosts } from "@/components/PostProvider";
 
 export default function Home() {
+  const { posts, openCreateModal } = usePosts();
+
   return (
     <div className="mx-auto w-full max-w-[760px] px-5 pb-20 pt-6 lg:px-10 lg:pt-[34px]">
       <div className="mb-6">
@@ -16,7 +21,11 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="mb-6 flex items-center gap-[14px] rounded-[18px] border border-borde bg-tarjeta px-[18px] py-[14px] shadow-trigger">
+      <button
+        type="button"
+        onClick={openCreateModal}
+        className="mb-6 flex w-full cursor-pointer items-center gap-[14px] rounded-[18px] border border-borde bg-tarjeta px-[18px] py-[14px] text-left shadow-trigger"
+      >
         <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-coral-avatar font-display text-base font-semibold text-white">
           {usuarioActual.iniciales}
         </div>
@@ -38,7 +47,7 @@ export default function Home() {
             <circle cx="12" cy="13" r="4" />
           </svg>
         </span>
-      </div>
+      </button>
 
       <div className="mb-[14px] flex items-center gap-[14px]">
         <span className="text-[12.5px] font-extrabold tracking-[0.8px] text-texto-etiqueta">
@@ -48,7 +57,7 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col gap-4">
-        {feedPosts.map((post) => (
+        {posts.map((post) => (
           <PostCard key={post.id} post={post} />
         ))}
       </div>

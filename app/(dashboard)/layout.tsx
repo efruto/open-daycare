@@ -1,9 +1,10 @@
 import Sidebar from "@/components/Sidebar";
 import MobileHeader from "@/app/components/mobile-header";
+import PostProvider from "@/components/PostProvider";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <PostProvider>
       <MobileHeader />
       <div className="flex">
         <Sidebar />
@@ -11,6 +12,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           {children}
         </main>
       </div>
-    </>
+    </PostProvider>
   );
 }

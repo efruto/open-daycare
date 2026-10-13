@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { usePosts } from "@/components/PostProvider";
 
 const usuarioActual = {
   nombre: "Caro Giménez",
@@ -12,6 +13,7 @@ const usuarioActual = {
 
 export function SidebarContent() {
   const pathname = usePathname();
+  const { openCreateModal } = usePosts();
 
   const isHomeActive = pathname === "/";
   const isKidsActive = pathname === "/kids" || pathname.startsWith("/kids/");
@@ -46,8 +48,8 @@ export function SidebarContent() {
         </div>
       </Link>
 
-      <Link
-        href="#"
+      <button
+        onClick={openCreateModal}
         className="flex items-center justify-center gap-2 w-full p-3 rounded-[14px] bg-gradient-to-b from-coral-degradado-inicio to-coral-degradado-fin text-white font-extrabold text-[14.5px] shadow-boton-coral mb-[18px]"
       >
         <svg
@@ -63,7 +65,7 @@ export function SidebarContent() {
           <path d="M12 5v14M5 12h14" />
         </svg>
         Nueva publicación
-      </Link>
+      </button>
 
       <nav className="flex flex-col gap-1 flex-1">
         <Link
